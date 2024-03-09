@@ -11,60 +11,23 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Functionality covered:
+### 1. Web app for the desktop screens with react-boostrap
+### 2. Mobile resposive design
+### 3. Add task input form with title, description, date(date-picker) and priority
+### 4. Tabular view of the task list with various features like: edit task, delete task, mark completed(cross out the completed task).
+### 5. Store the added, edited, deleted, completed task in localStorage
+### 6. Other feature includes, Searching the tasks, Sorting the task.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Todo App 
+![Screenshot 2024-03-09 115924](https://github.com/Promodp/crud-react-bootstrap-localstorage/assets/36471350/4b59376f-a952-4260-ab1e-d11f1f377989)
+### Delete confirmation
+![Screenshot 2024-03-09 115945](https://github.com/Promodp/crud-react-bootstrap-localstorage/assets/36471350/f9d194e1-c6f2-4fd2-9304-68c38b02cf19)
+### Edit task
+![Screenshot 2024-03-09 120013](https://github.com/Promodp/crud-react-bootstrap-localstorage/assets/36471350/6102f2c8-86f0-4d57-9581-273e05dd24a3)
+###Input filed validation
+![Screenshot 2024-03-09 120037](https://github.com/Promodp/crud-react-bootstrap-localstorage/assets/36471350/7c4f605b-39d9-4fdb-a9f3-71e3fc23c96e)
+### Searching task by title and description
+![Screenshot 2024-03-09 120114](https://github.com/Promodp/crud-react-bootstrap-localstorage/assets/36471350/107e3821-03f4-44ca-be7a-e18c640ba727)
+### Sorting
+![Screenshot 2024-03-09 120215](https://github.com/Promodp/crud-react-bootstrap-localstorage/assets/36471350/870d92c1-a18f-4591-85d4-ca5043016fe9)
