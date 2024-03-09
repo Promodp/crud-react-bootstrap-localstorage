@@ -19,6 +19,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 ### 4. Tabular view of the task list with various features like: edit task, delete task, mark completed(cross out the completed task).
 ### 5. Store the added, edited, deleted, completed task in localStorage
 ### 6. Other feature includes, Searching the tasks, Sorting the task.
+### 7. Context API for state management
 
 ### Todo App 
 ![Screenshot 2024-03-09 115924](https://github.com/Promodp/crud-react-bootstrap-localstorage/assets/36471350/4b59376f-a952-4260-ab1e-d11f1f377989)

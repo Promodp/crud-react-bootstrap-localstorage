@@ -1,33 +1,35 @@
 import React, { useState } from "react";
 import { Table, FormControl } from "react-bootstrap";
+import { useTodo } from "../TodoContext";
 
 const TaskList = ({
-  users,
   handleEdit,
   handleSort,
   handleDelete,
   handleComplete,
   setSortOrder,
 }) => {
+  const { lists } = useTodo();
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSortClick = (field) => {
     setSortOrder((prevSortOrder) => ({
       field,
-      ascending: prevSortOrder.field === field ? !prevSortOrder.ascending : true,
+      ascending:
+        prevSortOrder.field === field ? !prevSortOrder.ascending : true,
     }));
     handleSort(field);
   };
 
-  const filteredUsers = users.filter(
-    (user) =>
-      user.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.description.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredLists = lists.filter(
+    (list) =>
+      list.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      list.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <div>
-         <h4>List of todo items:</h4>
+      <h4>List of todo items:</h4>
       <FormControl
         type="text"
         placeholder="Search by task title or description"
@@ -52,7 +54,7 @@ const TaskList = ({
           </tr>
         </thead>
         <tbody>
-          {filteredUsers.map((item, index) => (
+          {filteredLists.map((item, index) => (
             <tr
               key={index}
               style={{

@@ -1,6 +1,6 @@
 import { Button, Form } from 'react-bootstrap';
 
-const Forms = ({ handleChange, user, saveData }) => {
+const Forms = ({  handleChange, list, saveData }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     saveData();
@@ -14,7 +14,7 @@ const Forms = ({ handleChange, user, saveData }) => {
           type="text"
           placeholder="Enter title"
           name="title"
-          value={user.title || ""}
+          value={list.title || ""}
           onChange={handleChange}
           required
         />
@@ -27,7 +27,7 @@ const Forms = ({ handleChange, user, saveData }) => {
           rows={3}
           placeholder="Enter description"
           name="description"
-          value={user.description || ""}
+          value={list.description || ""}
           onChange={handleChange}
           required
         />
@@ -38,7 +38,7 @@ const Forms = ({ handleChange, user, saveData }) => {
         <Form.Control
           type="date"
           name="dueDate"
-          value={user.dueDate || ""}
+          value={list.dueDate || ""}
           onChange={handleChange}
           required
         />
@@ -49,7 +49,7 @@ const Forms = ({ handleChange, user, saveData }) => {
         <Form.Control
           as="select"
           name="priority"
-          value={user.priority}
+          value={list.priority}
           onChange={handleChange}
         >
           <option value="P1">P1</option>

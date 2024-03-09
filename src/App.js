@@ -3,42 +3,22 @@ import DeleteModal from "./components/DeleteModal";
 import TaskList from "./components/TaskList";
 import Forms from "./components/Forms";
 import "./App.css";
+import { useTodo } from './TodoContext';
 
 const App = () => {
-  const initialUsers = JSON.parse(localStorage.getItem("users")) || [
-    {
-      title: "Task 1",
-      description: "Description 1",
-      dueDate: "2024-03-31",
-      priority: "P1",
-    },
-    {
-      title: "Task 2",
-      description: "Description 2",
-      dueDate: "2024-04-15",
-      priority: "P3",
-    },
-    {
-      title: "Task 3",
-      description: "Description 3",
-      dueDate: "2024-04-15",
-      priority: "P2",
-    },
-  ];
+  const { lists, setLists } = useTodo();
 
-  const [users, setUsers] = useState(initialUsers);
-  const [user, setUser] = useState({});
+  const [list, setList] = useState({});
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [isEdit, setIsEdit] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [sortOrder, setSortOrder] = useState({ field: "", ascending: true });
 
   const handleSort = (field) => {
-    setUsers((prevUsers) => {
-      const sortedUsers = [...prevUsers].sort((a, b) => {
+    setLists((prevLists) => {
+      const sortedLists = [...prevLists].sort((a, b) => {
         const aValue = a[field];
         const bValue = b[field];
-
         if (typeof aValue === "string" && typeof bValue === "string") {
           return aValue.localeCompare(bValue);
         } else if (typeof aValue === "number" && typeof bValue === "number") {
@@ -49,40 +29,39 @@ const App = () => {
       });
 
       if (!sortOrder.ascending) {
-        sortedUsers.reverse();
+        sortedLists.reverse();
       }
-
-      return sortedUsers;
+      return sortedLists;
     });
   };
 
   const handleComplete = (index) => {
-    setUsers((prevUsers) => {
-      const updatedUsers = [...prevUsers];
-      updatedUsers[index] = { ...updatedUsers[index], completed: true };
-      localStorage.setItem("users", JSON.stringify(updatedUsers));
-      return updatedUsers;
+    setLists((prevLists) => {
+      const updatedLists = [...prevLists];
+      updatedLists[index] = { ...updatedLists[index], completed: true };
+      localStorage.setItem("lists", JSON.stringify(updatedLists));
+      return updatedLists;
     });
   };
 
   const handleEdit = (index) => {
     setCurrentIndex(index);
     setIsEdit(true);
-    setUser({ ...users[index] });
+    setList({ ...lists[index] });
   };
 
   const handleDelete = (index, title) => {
     setCurrentIndex(index);
-    setUser({ title });
+    setList({ title });
     setShowModal(true);
   };
 
   const handleConfirmDelete = () => {
-    setUsers((prevUsers) => {
-      const updatedUsers = [...prevUsers];
-      updatedUsers.splice(currentIndex, 1);
-      localStorage.setItem("users", JSON.stringify(updatedUsers));
-      return updatedUsers;
+    setLists((prevLists) => {
+      const updatedLists = [...prevLists];
+      updatedLists.splice(currentIndex, 1);
+      localStorage.setItem("lists", JSON.stringify(updatedLists));
+      return updatedLists;
     });
 
     setShowModal(false);
@@ -91,26 +70,25 @@ const App = () => {
   const handleChange = (event) => {
     const field = event.target.name;
     const value = event.target.value;
-    setUser((prevUser) => ({ ...prevUser, [field]: value }));
+    setList((prevList) => ({ ...prevList, [field]: value }));
   };
 
   const saveData = () => {
-    if (Object.keys(user).length > 0) {
-      let updatedUsers;
-
+    if (Object.keys(list).length > 0) {
+      let updatedLists;
       if (isEdit) {
-        updatedUsers = [...users];
-        updatedUsers[currentIndex] = { ...user };
+        updatedLists = [...lists];
+        updatedLists[currentIndex] = { ...list };
       } else {
-        updatedUsers = [...users, user];
+        updatedLists = [...lists, list];
       }
 
-      localStorage.setItem("users", JSON.stringify(updatedUsers));
+      localStorage.setItem("lists", JSON.stringify(updatedLists));
 
-      setUsers(updatedUsers);
+      setLists(updatedLists);
       setCurrentIndex(-1);
       setIsEdit(false);
-      setUser({});
+      setList({});
     }
   };
 
@@ -124,13 +102,12 @@ const App = () => {
           
           <Forms
             handleChange={handleChange}
-            user={user}
+            list={list}
             saveData={saveData}
           />
         </div>
         <div className="col-md-12 col-lg-7">
           <TaskList
-            users={users}
             handleEdit={handleEdit}
             handleDelete={handleDelete}
             handleComplete={handleComplete}
@@ -143,7 +120,7 @@ const App = () => {
       <DeleteModal
         showModal={showModal}
         setShowModal={setShowModal}
-        user={user}
+        list={list}
         handleConfirmDelete={handleConfirmDelete}
       />
     </div>
